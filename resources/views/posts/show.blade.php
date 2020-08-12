@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Внимание!</strong> Чтобы оставить свой перевод необходимо <a href="/login" class="text-dark underline"><u>авторизироваться.</u></a>
+                    <strong>Внимание!</strong> Чтобы оставить свой комментарий необходимо <a href="/login" class="text-dark underline"><u>авторизироваться.</u></a>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>

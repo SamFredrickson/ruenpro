@@ -72,10 +72,28 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                       <a class="dropdown-item" href="/post/create">Предложить перевод</a>
                                       <a class="dropdown-item" href="/my">Мои переводы</a>
-                                      <a class="dropdown-item text-danger" href="/editor/check">Проверить переводы</a>
+                                      @if (Auth::user()->role->id === 2)
+                                        <a class="dropdown-item text-danger" href="/editor/check">Проверить переводы</a>
+                                      @elseif (Auth::user()->role->id === 3)
+                                        <a class="dropdown-item text-danger" href="/editor/check">Проверить переводы</a>
+                                      @endif
                                     </div>
                                   </div>
                             </li>
+                            @if(Auth::user()->role->id === 1)
+                            <li class="nav-item ml-2" style="z-index: 9999 !important;">
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownUsers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Пользователи
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownUsers">
+                                        <a href="/users/create" class="dropdown-item">Создать пользователя</a>
+                                        <a href="/users/create" class="dropdown-item">Заблокировать пользователя</a>
+                                        <a href="/users/create" class="dropdown-item">Изменить роль пользователя</a>
+                                    </div>
+                                </div>
+                            </li>
+                            @endif
                             <li class="nav-item">
                                 <a href="{{ route('logout') }}" id="logout" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();" class="ml-2 btn btn-outline-danger">
