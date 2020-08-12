@@ -1,0 +1,22 @@
+.font-big{
+    font-size: 24px;
+}
+
+.min-h{
+    min-height: 100vh;
+}
+
+@media (max-width: 800px){
+    .separator{
+        display: none;
+    }
+}
+
+@media (max-width: 770px){
+    #suggest{
+        margin-bottom: 5px;
+    }
+    #logout{
+        margin: 0 !important;
+    }
+}
