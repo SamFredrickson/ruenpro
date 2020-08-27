@@ -17,15 +17,15 @@
         @endguest
         <div class="col-md-8">
             <div>
-                <form action="/post" method="post" enctype="multipart/form-data">
+                <form action="/users" method="post" enctype="multipart/form-data">
                   @csrf
-                  <h2>Добавление перевода</h2>
+                  <h2>Добавление пользователя</h2>
 
                   <div class="form-group">
-                     <label for="title">Заголовок (на русском)</label>
-                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Заголовок" required autocomplete="title">
+                     <label for="name">Имя</label>
+                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Имя" required autocomplete="name">
 
-                     @error('title')
+                     @error('name')
                      <span class="invalid-feedback" role="alert">
                          <strong>{{ $message }}</strong>
                      </span>
@@ -34,22 +34,10 @@
                   </div>
 
                   <div class="form-group">
-                     <label for="subtitle">Подзаголовок (на русском)</label>
-                     <input type="text" name="subtitle" class="form-control @error('subtitle') is-invalid @enderror" id="subtitle" placeholder="Подзаголовок" required autocomplete="subtitle">
+                     <label for="surname">Фамилия</label>
+                     <input type="text" class="form-control @error('surname') is-invalid @enderror" id="surname" placeholder="Фамилия" required autocomplete="surname">
 
-                     @error('subtitle')
-                     <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                     </span>
-                    @enderror
-                    
-                  </div>
-
-                  <div class="form-group">
-                     <label for="image">Картинка ( по тематике )</label>
-                     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" placeholder="Картинка" required autocomplete="image">
-
-                     @error('image')
+                     @error('surname')
                      <span class="invalid-feedback" role="alert">
                          <strong>{{ $message }}</strong>
                      </span>
@@ -58,10 +46,15 @@
                   </div>
 
                   <div class="form-group">
-                     <label for="initial">Исходный текст</label>
-                     <textarea class="form-control @error('initial') is-invalid @enderror" name="initial" id="initial" placeholder="Исходный перевод" rows="5" required autocomplete="initial"></textarea>
+                     <label for="middlename">Отчество</label>
+                     <input type="middlename" class="form-control" id="middlename" placeholder="Отчество" autocomplete="middlename">
+                  </div>
 
-                     @error('initial')
+                  <div class="form-group">
+                     <label for="email">Почта</label>
+                     <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Почта" required autocomplete="email">
+
+                     @error('email')
                      <span class="invalid-feedback" role="alert">
                          <strong>{{ $message }}</strong>
                      </span>
@@ -70,16 +63,35 @@
                   </div>
 
                   <div class="form-group">
-                     <label for="done">Переведенный текст</label>
-                     <textarea name="done" class="form-control @error('done') is-invalid @enderror" id="done" placeholder="Конечный перевод" rows="5" required autocomplete="done"></textarea>
+                            <label for="password">{{ __('Пароль') }}</label>
 
-                     @error('done')
-                     <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                     </span>
-                    @enderror
-                    
-                  </div>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm">{{ __('Повторите пароль') }}</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputRole">Роль</label>
+                            <select name="role" id="role" required class="form-control @error('role') is-invalid @enderror">
+                                <option value="1" selected>Пользователь</option>
+                                <option value="2">Редактор</option>
+                                <option value="3">Гл. Редактор</option>
+                            </select>
+
+                               @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
                   <button type="submit" class="btn float-right btn-lg w-50 btn-success">
                      Добавить
                   </button>
@@ -99,9 +111,6 @@
                     <div class="card shadow-sm">
                         <img src="https://static.scientificamerican.com/sciam/cache/file/4E0744CD-793A-4EF8-B550B54F7F2C4406.jpg" alt="" src="" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-text text-muted mb-1">
-                                10.08.2020 г.
-                            </p>
                             <h5 class="card-title font-weight-bold">
                                 Мать некита увезли на носилках
                             </h5>
@@ -113,11 +122,9 @@
                             </p>
                             <a class="btn btn-primary float-right" href="#">Подробнее...</a>   
                             <p class="card-text pt-2">
-                                <i class="fa fa-eye" style="font-size: 16px;"></i>
+                                <i class="fa fa-eye"></i>
                                 <span>12</span>
-                                <i class="fa fa-comments pl-2"></i>
-                                <span>15</span>
-                            </p>                       
+                            </p>                    
                         </div>
                 </div>
             </div>

@@ -19,7 +19,23 @@ class PostController extends Controller
     }
 
     public function store(){
-        
+        $data = request()->validate([
+            'title' => 'required|max:200',
+            'subtitle' => 'required|max:200',
+            'image' => 'required|image',
+            'initial' => 'required',
+            'done' => 'required'
+        ]);
+
+        $image = request('image')->store('uploads', 'public');
+
+        auth()->user()->posts()->create([
+            'title' => $data['title'],
+            'subtitle' => $data['subtitle'],
+            'image' => $image,
+            'initial' => $data['initial'],
+            'done' => $data['done'],
+        ]);
     }
 
     public function my(){

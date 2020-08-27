@@ -80,7 +80,7 @@
                                     </div>
                                   </div>
                             </li>
-                            @if(Auth::user()->role->id === 1)
+                            @if(Auth::user()->role->id === 3)
                             <li class="nav-item ml-2" style="z-index: 9999 !important;">
                                 <div class="dropdown">
                                     <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownUsers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

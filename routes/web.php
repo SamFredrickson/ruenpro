@@ -22,6 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/search', 'PostController@search')->name('posts.search');
 Route::get('/post/create', 'PostController@create')->name('posts.create')->middleware('auth');
+Route::post('/post', 'PostController@store')->name('posts.store')->middleware('auth');
 Route::get('/my', 'PostController@my')->name('posts.my')->name('posts.my');
 Route::get('/post/{post}', 'PostController@show')->name('posts.show');
 Route::get('/editor/check', 'EditorController@check')->name('editor.check')->middleware('editor');
+
+Route::get('/users/create', 'UsersController@create')->name('users.create')->middleware('auth');
+

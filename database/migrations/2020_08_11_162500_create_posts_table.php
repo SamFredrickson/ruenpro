@@ -16,14 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('status_id')->default(1);
             $table->text('title');
             $table->text('image');
             $table->text('subtitle');
             $table->text('initial');
             $table->text('done');
-            $table->unsignedTinyInteger('is_verified')->default(0);
-            $table->unsignedTinyInteger('is_declined')->default(0);
             $table->timestamps();
 
             $table->index(['user_id', 'status_id']);
